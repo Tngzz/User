@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -43,6 +44,15 @@ public class UserServiceImpl implements UserService {
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
         return new ResponseEntity<>("No community was found", HttpStatus.NOT_FOUND);
+    }
+
+    @Override
+    public ResponseEntity<List<User>> fetchUsers() {
+        List<User> users = repository.findAll();
+        if (users.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(users);
     }
 
     @Override

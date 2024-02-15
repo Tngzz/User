@@ -11,6 +11,11 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    @GetMapping
+    public ResponseEntity<?> fetchAll(){
+        return service.fetchUsers();
+    }
+
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody User user) {
         return service.createUser(user);
