@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
             // Build a UserResponse
             UserResponse response = new UserResponse();
             response.setId(oUser.get().getId());
-            response.setName(oUser.get().getPseudo());
+            response.setName(oUser.get().getName());
             response.setCommunity(community);
 
             return new ResponseEntity<>(response, HttpStatus.OK);

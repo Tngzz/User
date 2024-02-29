@@ -11,8 +11,10 @@ public class User {
     @Id
     private String id;
 
-    private String pseudo;
+    private String name;
 
     private String community_id;
+
+    private String roleId;
 
 }
